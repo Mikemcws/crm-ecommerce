@@ -51,3 +51,32 @@ function atualizarStatusLead(id, novoStatus) {
   const leads = getLeads().map(l => l.id === id ? { ...l, status: novoStatus } : l)
   salvarLeads(leads)
 }
+// ===== TAREFAS =====
+
+function getTarefas() {
+  return JSON.parse(localStorage.getItem('tarefas')) || []
+}
+
+function salvarTarefas(tarefas) {
+  localStorage.setItem('tarefas', JSON.stringify(tarefas))
+}
+
+function adicionarTarefa(tarefa) {
+  const tarefas = getTarefas()
+  tarefa.id = Date.now()
+  tarefa.concluida = false
+  tarefas.push(tarefa)
+  salvarTarefas(tarefas)
+}
+
+function excluirTarefa(id) {
+  const tarefas = getTarefas().filter(t => t.id !== id)
+  salvarTarefas(tarefas)
+}
+
+function toggleTarefa(id) {
+  const tarefas = getTarefas().map(t => 
+    t.id === id ? { ...t, concluida: !t.concluida } : t
+  )
+  salvarTarefas(tarefas)
+}
