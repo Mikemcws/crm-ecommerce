@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM | Leads</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app-page">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <h2>📦 CRM Store</h2>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-item">
+        <span class="nav-icon">📊</span>
+        <span>Dashboard</span>
+      </a>
+      <a href="clientes.html" class="nav-item">
+        <span class="nav-icon">👥</span>
+        <span>Clientes</span>
+      </a>
+      <a href="leads.html" class="nav-item active">
+        <span class="nav-icon">🎯</span>
+        <span>Leads</span>
+      </a>
+      <a href="tarefas.html" class="nav-item">
+        <span class="nav-icon">✅</span>
+        <span>Tarefas</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button id="btn-logout">🚪 Sair</button>
+    </div>
+  </aside>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="main-content">
+    <header class="page-header">
+      <div>
+        <h1>Leads</h1>
+        <p>Acompanhe seu funil de vendas</p>
+      </div>
+      <button id="btn-novo-lead">+ Novo Lead</button>
+    </header>
+
+    <!-- KANBAN -->
+    <div class="kanban-board">
+      <div class="kanban-coluna" data-status="Novo">
+        <div class="kanban-coluna-header">
+          <span class="kanban-coluna-cor novo"></span>
+          <h3>Novo</h3>
+          <span class="kanban-contador" id="count-novo">0</span>
+        </div>
+        <div class="kanban-cards" id="col-novo"></div>
+      </div>
+
+      <div class="kanban-coluna" data-status="Contatado">
+        <div class="kanban-coluna-header">
+          <span class="kanban-coluna-cor contatado"></span>
+          <h3>Contatado</h3>
+          <span class="kanban-contador" id="count-contatado">0</span>
+        </div>
+        <div class="kanban-cards" id="col-contatado"></div>
+      </div>
+
+      <div class="kanban-coluna" data-status="Negociando">
+        <div class="kanban-coluna-header">
+          <span class="kanban-coluna-cor negociando"></span>
+          <h3>Negociando</h3>
+          <span class="kanban-contador" id="count-negociando">0</span>
+        </div>
+        <div class="kanban-cards" id="col-negociando"></div>
+      </div>
+
+      <div class="kanban-coluna" data-status="Convertido">
+        <div class="kanban-coluna-header">
+          <span class="kanban-coluna-cor convertido"></span>
+          <h3>Convertido</h3>
+          <span class="kanban-contador" id="count-convertido">0</span>
+        </div>
+        <div class="kanban-cards" id="col-convertido"></div>
+      </div>
+
+      <div class="kanban-coluna" data-status="Perdido">
+        <div class="kanban-coluna-header">
+          <span class="kanban-coluna-cor perdido"></span>
+          <h3>Perdido</h3>
+          <span class="kanban-contador" id="count-perdido">0</span>
+        </div>
+        <div class="kanban-cards" id="col-perdido"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- MODAL -->
+  <div id="modal-lead" class="modal-overlay hidden">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>Novo Lead</h2>
+        <button id="btn-fechar-modal-lead">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="input-group">
+          <label>Nome</label>
+          <input type="text" id="lead-nome" placeholder="Nome completo">
+        </div>
+        <div class="input-group">
+          <label>E-mail</label>
+          <input type="email" id="lead-email" placeholder="email@exemplo.com">
+        </div>
+        <div class="input-group">
+          <label>Origem</label>
+          <select id="lead-origem">
+            <option value="Instagram">Instagram</option>
+            <option value="Google">Google</option>
+            <option value="Indicação">Indicação</option>
+            <option value="Marketplace">Marketplace</option>
+            <option value="Orgânico">Orgânico</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="btn-cancelar-lead">Cancelar</button>
+        <button id="btn-salvar-lead">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/leads.js"></script>
+
+</body>
+</html>
