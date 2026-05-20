@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM | Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app-page">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <h2>📦 CRM Store</h2>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-item active">
+        <span class="nav-icon">📊</span>
+        <span>Dashboard</span>
+      </a>
+      <a href="clientes.html" class="nav-item">
+        <span class="nav-icon">👥</span>
+        <span>Clientes</span>
+      </a>
+      <a href="leads.html" class="nav-item">
+        <span class="nav-icon">🎯</span>
+        <span>Leads</span>
+      </a>
+      <a href="tarefas.html" class="nav-item">
+        <span class="nav-icon">✅</span>
+        <span>Tarefas</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button id="btn-logout">🚪 Sair</button>
+    </div>
+  </aside>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="main-content">
+    <header class="page-header">
+      <h1>Dashboard</h1>
+      <p>Bem-vindo de volta! 👋</p>
+    </header>
+
+    <!-- CARDS KPI -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <span class="kpi-icon">👥</span>
+        <div class="kpi-info">
+          <span class="kpi-valor" id="total-clientes">0</span>
+          <span class="kpi-label">Clientes</span>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-icon">🎯</span>
+        <div class="kpi-info">
+          <span class="kpi-valor" id="total-leads">0</span>
+          <span class="kpi-label">Leads</span>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-icon">✅</span>
+        <div class="kpi-info">
+          <span class="kpi-valor" id="total-tarefas">0</span>
+          <span class="kpi-label">Tarefas pendentes</span>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-icon">🔥</span>
+        <div class="kpi-info">
+          <span class="kpi-valor" id="total-convertidos">0</span>
+          <span class="kpi-label">Leads convertidos</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    verificarLogin()
+
+    // Logout
+    document.getElementById('btn-logout').addEventListener('click', function() {
+      localStorage.removeItem('logado')
+      window.location.href = 'index.html'
+    })
+
+    // KPIs
+    document.getElementById('total-clientes').textContent = 
+      (JSON.parse(localStorage.getItem('clientes')) || []).length
+
+    document.getElementById('total-leads').textContent = 
+      (JSON.parse(localStorage.getItem('leads')) || []).length
+
+    document.getElementById('total-tarefas').textContent = 
+      (JSON.parse(localStorage.getItem('tarefas')) || []).length
+
+    document.getElementById('total-convertidos').textContent = 
+      (JSON.parse(localStorage.getItem('leads')) || [])
+        .filter(l => l.status === 'Convertido').length
+  </script>
+
+</body>
+</html>
