@@ -1,3 +1,14 @@
+// Protege páginas que precisam de login
+function verificarLogin() {
+  const logado = localStorage.getItem('logado')
+  if (!logado) {
+    window.location.href = 'index.html'
+  }
+}
+
+
+
+
 // Usuário fixo por enquanto (simula um banco de dados)
 const USUARIO = {
   email: 'admin@crm.com',

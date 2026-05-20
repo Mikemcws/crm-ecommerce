@@ -100,3 +100,141 @@ button#btn-login:hover {
   margin-bottom: 8px;
   min-height: 18px;
 }
+
+/* ===== LAYOUT GERAL ===== */
+.app-page {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 240px;
+  background: #1e1e2e;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.sidebar-logo {
+  padding: 24px 20px;
+  border-bottom: 1px solid #2e2e4e;
+}
+
+.sidebar-logo h2 {
+  font-size: 18px;
+  color: #a78bfa;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 16px 0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  color: #aaa;
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 0.2s;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: #2e2e4e;
+  color: #a78bfa;
+}
+
+.nav-icon {
+  font-size: 18px;
+}
+
+.sidebar-footer {
+  padding: 20px;
+  border-top: 1px solid #2e2e4e;
+}
+
+.sidebar-footer button {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid #444;
+  color: #aaa;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.sidebar-footer button:hover {
+  background: #e53e3e;
+  border-color: #e53e3e;
+  color: white;
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+.main-content {
+  margin-left: 240px;
+  padding: 32px;
+  flex: 1;
+  background: #f0f2f5;
+  min-height: 100vh;
+}
+
+.page-header {
+  margin-bottom: 32px;
+}
+
+.page-header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1e1e2e;
+}
+
+.page-header p {
+  color: #888;
+  margin-top: 4px;
+}
+
+/* ===== KPI CARDS ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.kpi-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.kpi-icon {
+  font-size: 32px;
+}
+
+.kpi-valor {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e1e2e;
+}
+
+.kpi-label {
+  display: block;
+  font-size: 13px;
+  color: #888;
+  margin-top: 2px;
+}
