@@ -5,7 +5,7 @@ Projeto construído do zero com HTML, CSS e JavaScript puro.
 
 ## 🚀 Demo
 
-👉 [Acesse o projeto aqui](https://seu-link-aqui.vercel.app)
+👉 [Acesse o projeto aqui]([https://seu-link-aqui.vercel.app](https://mikemcws.github.io/crm-ecommerce/))
 
 **Login de acesso:**
 - E-mail: `admin@crm.com`
